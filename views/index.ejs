@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+.top{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 80px;
+    width: 100%;
+    background-color: rgb(29, 29, 139);
+    color: white;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 27px;
+}
+
+
+.main{
+    position: absolute;
+    top: 30%;
+    left: 25%;
+display: flex;
+align-self: center;
+align-content: center;
+justify-content: center;
+
+}
+
+</style>
+
+<body >
+
+<div class="top">
+<p> Blue Jokes  &#128514; </p>
+</div>
+
+<div class="main">
+<form action="/" method="get">
+<h3> Read a Joke!</h3>
+
+
+<label for="displayBy"> choose how to display the joke: </label>
+
+<select name="displayBy" id="displayBy" onchange="toggleInput()" >
+    <option value="id">By ID</option>
+    <option value="type">By Type</option>
+</select>
+
+<div id="idInput" >
+<label for="jokeid">Select an ID for the joke:</label>
+<input type="number" name="jokeid" id="jokeid" required max="100" min="1"> 
+</div>
+
+
+<div id="typeInput" style="display: none;" >
+<label for="joketype"> Select a type for the joke :</label>
+<select name="joketype" id="joketype">
+<option value="Science">Science</option>
+<option value="puns">puns</option>
+<option value="Wordplay">Wordplay</option>
+<option value="Math">Math</option>
+<option value="Food">Food</option>
+<option value="Sports">Sports</option>
+<option value="Movies">Movies</option>
+</select>
+</div>
+
+<button type="submit">click</button> <br> <br>
+
+
+<p> Your Joke :</p> <textarea cols="50" rows="7" name="joke" id="joke"> <%= joke ? joke.jokeText: 'No jokes found!' %> </textarea>
+</form>
+</div>
+
+
+<script>
+
+    function toggleInput(){
+        const displayBy=document.getElementById("displayBy").value;
+    const idInput = document.getElementById("idInput");
+    const typeInput = document.getElementById("typeInput");
+
+
+
+
+if(displayBy==="id"){
+    idInput.style.display = "block";
+    typeInput.style.display="none";
+}else{
+    idInput.style.display = "none";
+    typeInput.style.display="block";
+}
+    }
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
